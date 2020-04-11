@@ -5,10 +5,14 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">    
+    </head>
     <body>
         <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+            <h1><a href="/">MyBlog</a></h1>
         </div>
         <div class="content container">
             <div class="row">
